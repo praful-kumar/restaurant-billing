@@ -3,7 +3,9 @@ package com.restaurant.restaurantbilling.service;
 import com.restaurant.restaurantbilling.model.Users;
 import com.restaurant.restaurantbilling.resository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 
@@ -11,12 +13,17 @@ import org.springframework.stereotype.Service;
 public class UserService {
 
     private final UserRepo userRepository;
-    private final BCryptPasswordEncoder passwordEncoder;
 
+    private  BCryptPasswordEncoder passwordEncoder;
+    @Bean
+    public PasswordEncoder passwordEncoder()
+    {
+        return new BCryptPasswordEncoder();
+    }
     @Autowired
-    public UserService(UserRepo userRepository,BCryptPasswordEncoder passwordEncoder) {
+    public UserService(UserRepo userRepository) {
         this.userRepository = userRepository;
-        this.passwordEncoder = passwordEncoder;
+
     }
 
     public Users registerUser(Users user) {
