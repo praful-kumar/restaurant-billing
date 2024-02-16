@@ -8,7 +8,6 @@ class RestaurantBillingApplicationTests {
 
 	@Test
 	void contextLoads() {
-		System.out.println("hello   ");
 	}
 
 }
