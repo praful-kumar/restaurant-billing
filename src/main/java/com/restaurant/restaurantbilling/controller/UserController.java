@@ -1,4 +1,5 @@
 package com.restaurant.restaurantbilling.controller;
+import com.restaurant.restaurantbilling.model.Sale;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import com.restaurant.restaurantbilling.model.Users;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,9 @@ public class UserController {
     public UserController(UserService userService) {
         this.userService = userService;
     }
+
+
+
 
     @PostMapping("/register")
     public ResponseEntity<Map<String, Object>> registerUser(@RequestBody Users user) {
@@ -49,4 +53,7 @@ public class UserController {
             return ResponseEntity.status(401).body(responseBody);
         }
     }
+
+
+
 }
