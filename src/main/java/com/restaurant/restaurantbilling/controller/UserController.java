@@ -1,11 +1,10 @@
 package com.restaurant.restaurantbilling.controller;
-import com.restaurant.restaurantbilling.model.Sale;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import com.restaurant.restaurantbilling.model.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.restaurant.restaurantbilling.service.UserService;
+import com.restaurant.restaurantbilling.service.impl.UserService;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -47,12 +46,15 @@ public class UserController {
         if (loggedInUser != null) {
             responseBody.put("Id",loggedInUser.getId());
             responseBody.put("email",loggedInUser.getEmail());
+            responseBody.put("hashedPassword",loggedInUser.getPassword());
             return ResponseEntity.ok(responseBody);
         } else {
             responseBody.put("error", "Unauthorized: You do not have permission to access this resource.");
             return ResponseEntity.status(401).body(responseBody);
         }
     }
+
+    
 
 
 

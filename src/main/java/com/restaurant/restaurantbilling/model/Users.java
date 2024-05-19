@@ -2,7 +2,10 @@ package com.restaurant.restaurantbilling.model;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.util.List;
 
 @Document(collection = "users")
 //@Data
@@ -12,6 +15,14 @@ public class Users {
     private String email;
     private String password; // Note: In production, consider using hashed passwords.
 
+    @DBRef
+    private List<Sale> sells;
+
+    @DBRef
+    private List<Table> tables;
+
+    @DBRef
+    private List<Menu> menus;
     // getters and setters
 
 

@@ -1,4 +1,4 @@
-package com.restaurant.restaurantbilling.service;
+package com.restaurant.restaurantbilling.service.impl;
 
 import com.restaurant.restaurantbilling.model.Configuration;
 import com.restaurant.restaurantbilling.resository.ConfigurationRepository;
