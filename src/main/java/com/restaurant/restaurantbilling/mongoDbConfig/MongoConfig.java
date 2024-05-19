@@ -4,6 +4,8 @@ import com.mongodb.ConnectionString;
 import com.mongodb.MongoClientSettings;
 import com.mongodb.ServerApi;
 import com.mongodb.ServerApiVersion;
+
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.config.AbstractMongoClientConfiguration;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
@@ -17,11 +19,11 @@ public class MongoConfig extends AbstractMongoClientConfiguration {
     protected String getDatabaseName() {
         return "resturentCluster";
     }
-
+    @Value("${mongodb.connection-string}")
+    private String connectionString;
     @Override
     public MongoClient mongoClient() {
 
-        String connectionString = "mongodb+srv://praful1:C0cHUkpbIytAZpuy@resturentcluster.gqdlwfa.mongodb.net/?retryWrites=true&w=majority&appName=resturentCluster";
         ServerApi serverApi = ServerApi.builder()
                 .version(ServerApiVersion.V1)
                 .build();
