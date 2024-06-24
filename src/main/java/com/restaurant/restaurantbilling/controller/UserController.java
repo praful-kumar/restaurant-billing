@@ -9,7 +9,8 @@ import com.restaurant.restaurantbilling.service.impl.UserService;
 import java.util.HashMap;
 import java.util.Map;
 
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin("https://resturant-billing-application.vercel.app")
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
