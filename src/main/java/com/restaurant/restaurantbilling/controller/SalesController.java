@@ -57,4 +57,11 @@ public class SalesController {
         List<Order> orders  = orderService.getOrders();
         return new ResponseEntity<>(orders, HttpStatus.OK);
     }
+
+    @GetMapping("/getOrders/user/{userId}")
+    public  ResponseEntity<List<Order>> getOrders( @PathVariable String userId) {
+        List<Order> orders = orderService.getUserOrders(userId);
+        return new ResponseEntity<>(orders, HttpStatus.OK);
+    }
+
 }

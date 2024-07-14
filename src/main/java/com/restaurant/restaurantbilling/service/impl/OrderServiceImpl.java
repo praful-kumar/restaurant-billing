@@ -41,4 +41,9 @@ public class OrderServiceImpl implements OrderService {
     public List<Order> getOrders() {
         return orderRepository.findAllordersWithoutUser();
     }
+
+    @Override
+    public List<Order> getUserOrders( String userId) {return orderRepository.findOrderByUserId(userId);}
+
+
 }

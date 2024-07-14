@@ -14,5 +14,9 @@ public interface OrderRepository extends MongoRepository<Order, String> {
 
 
     @Query(value = "{}", fields = "{ 'user' : 0 }") // Exclude the 'user' field
- public List<Order> findAllordersWithoutUser() ;
+    public List<Order> findAllordersWithoutUser() ;
+
+    @Query(value = "{'user.id': ?0}", fields = "{ 'user' : 0 }")
+    List<Order> findOrderByUserId(String userId);
+
 }
