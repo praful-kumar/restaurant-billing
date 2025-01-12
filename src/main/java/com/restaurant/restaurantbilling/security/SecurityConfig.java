@@ -43,9 +43,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public CorsFilter corsFilter() {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
-        config.addAllowedOrigin("http://localhost:4200");
-        config.addAllowedOrigin("https://restaurant-billing-new1-praful321997-dev.apps.rm3.7wse.p1.openshiftapps.com");
-        config.addAllowedOrigin("*");
+        config.addAllowedOrigin("https://resturant-billing-application-q3a4w6kto-praful-kumars-projects.vercel.app");
         // Allow all origins
         config.addAllowedHeader("*"); // Allow all headers
         config.addAllowedMethod("*"); // Allow all methods (GET, POST, etc.)
