@@ -45,6 +45,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         config.setAllowCredentials(true);
         config.addAllowedOrigin("http://localhost:4200");
         config.addAllowedOrigin("https://restaurant-billing-new1-praful321997-dev.apps.rm3.7wse.p1.openshiftapps.com");
+        config.addAllowedOrigin("*");
         // Allow all origins
         config.addAllowedHeader("*"); // Allow all headers
         config.addAllowedMethod("*"); // Allow all methods (GET, POST, etc.)
