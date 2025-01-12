@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4200")
 
-@CrossOrigin("https://resturant-billing-application.vercel.app")
+//@CrossOrigin("https://resturant-billing-application.vercel.app")
 @RestController
 @RequestMapping("/api/menu")
 public class MenuController {

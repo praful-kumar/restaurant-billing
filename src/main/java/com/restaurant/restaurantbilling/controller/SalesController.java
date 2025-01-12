@@ -14,8 +14,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-//@CrossOrigin(origins = "http://localhost:4200")
-@CrossOrigin("https://resturant-billing-application.vercel.app")
+
+//@CrossOrigin("https://resturant-billing-application.vercel.app")
 @RestController
 @RequestMapping("/api/orders")
 public class SalesController {

@@ -9,8 +9,8 @@ import com.restaurant.restaurantbilling.service.impl.UserService;
 import java.util.HashMap;
 import java.util.Map;
 
-//@CrossOrigin(origins = "http://localhost:4200")
-@CrossOrigin("https://resturant-billing-application.vercel.app")
+
+//@CrossOrigin("https://resturant-billing-application.vercel.app")
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
@@ -22,9 +22,6 @@ public class UserController {
     public UserController(UserService userService) {
         this.userService = userService;
     }
-
-
-
 
     @PostMapping("/register")
     public ResponseEntity<Map<String, Object>> registerUser(@RequestBody Users user) {
@@ -42,21 +39,14 @@ public class UserController {
 
     @PostMapping("/signin")
     public ResponseEntity<Map<String, Object>> loginUser(@RequestBody Users user) {
-        Users loggedInUser = userService.loginUser(user);
-        Map<String, Object> responseBody = new HashMap<>();
-        if (loggedInUser != null) {
-            responseBody.put("Id",loggedInUser.getId());
-            responseBody.put("email",loggedInUser.getEmail());
-            responseBody.put("hashedPassword",loggedInUser.getPassword());
-            return ResponseEntity.ok(responseBody);
+        Map<String, Object> authenticatedUser = userService.loginUser(user);
+
+        if (authenticatedUser.get("status") != "error") {
+           // responseBody.put("Token",token);
+            return ResponseEntity.ok(authenticatedUser);
         } else {
-            responseBody.put("error", "Unauthorized: You do not have permission to access this resource.");
-            return ResponseEntity.status(401).body(responseBody);
+            return ResponseEntity.status(401).body(authenticatedUser);
         }
     }
-
-    
-
-
 
 }
